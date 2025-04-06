@@ -3,6 +3,9 @@ from discord.ext import commands
 from discord.ui import Select, View, Modal, TextInput, Button
 import asyncio
 import traceback
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -367,4 +370,4 @@ async def start(ctx):
     await ctx.send(embed=embed, view=view)
 
 # Execução do Bot
-bot.run("MTI5OTgyMTA0MjE1MTQ1Njg1OQ.GQ_67G.TXtOi4tmVxqdDF9upVlKufwQwvBXDnWb_b4xE8")
+bot.run(os.getenv("DISCORD_TOKEN"))  # Aqui vai buscar o token da variável de ambiente
